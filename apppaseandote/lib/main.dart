@@ -1,4 +1,3 @@
-import 'package:apppaseandote/vistalogin.dart';
 import 'package:flutter/material.dart';
 
 import 'VistaPrincipal.dart';
@@ -13,19 +12,16 @@ class Inicio extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-
-      home:Container(
+      home: Container(
         // imagen de fondo
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("imagenes/atardecer.jpg"),
-              fit: BoxFit.cover
-          ),
+              image: AssetImage("imagenes/atardecer.jpg"), fit: BoxFit.cover),
         ),
 
         child: Scaffold(
           backgroundColor: Colors.transparent,
-            // barra superior
+          // barra superior
             appBar: AppBar(
               elevation: 100,
               toolbarHeight: 20,
@@ -33,30 +29,12 @@ class Inicio extends StatelessWidget {
               title: Text("Paseandote"),
             ),
 
-          body: VistaPrincipal(),
-          // body: Login(),
 
+            body: VistaPrincipal(),
+          // body: Login(),
         ),
       ),
     );
   }
 
-  //crear widget
-Widget BotonUno(){
-    return ElevatedButton(//onPressed: onPressed, child: child
-    style: TextButton.styleFrom(
-      backgroundColor: Colors.amber
-    ),
-      child: Text('Somos',
-      style: TextStyle(
-        fontFamily: "titulo",
-        fontSize: 24,
-        color: Colors.white,
-      ),
-      ),
-      onPressed: (){
-      print("Boton Somos");
-      },
-    );
-}// fin widget BotonUno
 }

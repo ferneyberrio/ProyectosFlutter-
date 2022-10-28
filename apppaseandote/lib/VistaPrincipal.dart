@@ -1,84 +1,103 @@
+import 'package:apppaseandote/tituloprincipal.dart';
+import 'package:apppaseandote/vistalogin.dart';
 import 'package:flutter/material.dart';
 
-class VistaPrincipal extends StatelessWidget {
+String txtB1 = "Login";
+String txtB2 = "Ingresar";
+String txtB3 = "Registrarse";
+
+class VistaPrincipal extends StatefulWidget {
   const VistaPrincipal({Key? key}) : super(key: key);
 
   @override
+  State<VistaPrincipal> createState() => _VistaPrincipalState();
+}
+
+class _VistaPrincipalState extends State<VistaPrincipal> {
+  @override
   Widget build(BuildContext context) {
-  return Column(
-
-    children: [
-      Container(
-
-        margin: EdgeInsets.only(top: 20),
-        color: Color.fromARGB(100, 255, 255, 255),
-
-        child: Row(
-          children: [
-            Container(
-            //  width: 300,
-             // height: 50,
-              // margin: EdgeInsets.only(top: 50),
-              child: Text("Paseándote",
-              style: TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.bold,
-              ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            Container(
-              width: 100,
-              height: 50,
-              // color: Colors.cyan,
-              // margin: EdgeInsets.only(top: 50),
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage("imagenes/atardecer.jpg"),
-                ),
-              ),
-            ),
-          ],
+    titPpl = "paseandóte";
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Container(
+          // margin: EdgeInsets.only(top: 50),
+          child: Titulo(),
         ),
-      ),
-      Container(
-        margin: EdgeInsets.only(top: 20),
-        width: 200,
-        height: 100,
-        // color: Colors.cyan.withOpacity(0.05),
-        child: BotonUno(),
-      ),
-      Container(
-        margin: EdgeInsets.only(top: 20),
-        width: 200,
-        height: 100,
-        color: Colors.lightBlueAccent.withOpacity(0.1),
-      ),
-      Container(
-        margin: EdgeInsets.only(top: 20),
-        width: 200,
-        height: 100,
-        color: Colors.lightGreen,
-      )
-
+        Container(
+          child: BotonUno(),
+        ),
+        Container(
+          child: BotonDos(),
+        ),
+        Container(
+          child: BotonTres(),
+        )
       ],
-  );
+    );
   }
-  Widget BotonUno(){
-    return ElevatedButton(//onPressed: onPressed, child: child
-      style: TextButton.styleFrom(
-          backgroundColor: Colors.red.withOpacity(0.1)
-      ),
-      child: Text('Login',
+
+  // crear un boton
+  ElevatedButton BotonUno() {
+    return ElevatedButton(
+      //onPressed: onPressed, child: child
+      style:
+          TextButton.styleFrom(backgroundColor: Colors.yellow.withOpacity(0.3)),
+      child: Text(
+        txtB1,
         style: TextStyle(
-          fontSize: 30,
+          fontSize: 40,
+          fontFamily: "titulo",
           color: Colors.white,
         ),
       ),
-      onPressed: (){
-        print("Boton Somos");
+
+      onPressed: () {
+        print("Botón Login Presionado ");
       },
     );
-  }// fin widget BotonUno
+  }
 
+  // fin widget BotonUno
+  ElevatedButton BotonDos() {
+    return ElevatedButton(
+      //onPressed: onPressed, child: child
+      style:
+          TextButton.styleFrom(backgroundColor: Colors.blue.withOpacity(0.3)),
+      child: Text(
+        txtB2,
+        style: TextStyle(
+          fontSize: 40,
+          fontFamily: "titulo",
+          color: Colors.white,
+        ),
+      ),
+
+      onPressed: () {
+        // para redirigir
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => Login()));
+        print("Boton Ingresar Presionado ");
+      },
+    );
+  }// fin widget BotonDos
+
+  ElevatedButton BotonTres() {
+    return ElevatedButton(
+      //onPressed: onPressed, child: child
+      style: TextButton.styleFrom(backgroundColor: Colors.red.withOpacity(0.3)),
+      child: Text(
+        txtB3,
+        style: TextStyle(
+          fontSize: 40,
+          fontFamily: "titulo",
+          color: Colors.white,
+        ),
+      ),
+
+      onPressed: () {
+        print("Boton registrarse Presionado ");
+      },
+    );
+  } // fin boton3
 }
