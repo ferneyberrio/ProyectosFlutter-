@@ -2,6 +2,8 @@ import 'package:apppaseandote/tituloprincipal.dart';
 import 'package:apppaseandote/main.dart';
 
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'VistaPrincipal.dart';
 
@@ -13,6 +15,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  //autenticar
+  FirebaseAuth firebaseAuth=FirebaseAuth.instance;
   final usuario = TextEditingController(); // para capturar un dato
   final clave = TextEditingController();
   String usu = "", cla = "";
@@ -171,12 +175,13 @@ class _LoginState extends State<Login> {
           fontFamily: "titulo",
         ),
       ),
-      onPressed: () {
+      onPressed: ()async {
         usu = usuario.text; // lo que se recoje en la caja de texto
         cla = clave.text;
+        final datos= await firebaseAuth.signInWithEmailAndPassword(email: usu, password: cla);
 
-        if (usu == "ferney" && cla == "123") {
-          print(usu);
+        if ( datos != null ) {
+          print(datos);
           // Navigator.push(context,MaterialPageRoute(builder: (context)=>ListaPaseadores())
           // );
         } // fin if

@@ -32,7 +32,7 @@ class _TituloState extends State<Titulo> {
           margin: EdgeInsets.only(top: 50),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("imagenes/atardecer.jpg"),fit: BoxFit.cover,
+              image: AssetImage("imagenes/gotas.jpg"),fit: BoxFit.cover,
             ),
           ),
         ),

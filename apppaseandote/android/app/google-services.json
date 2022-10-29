@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1059101825654",
+    "project_id": "dbpaseandote",
+    "storage_bucket": "dbpaseandote.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059101825654:android:6ebe9f8b481bdfba88dd57",
+        "android_client_info": {
+          "package_name": "com.example.apppaseandote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059101825654-pchhj3ih87p8l4u3p1lmb55q18gf7mpe.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLwIsOCFA9B-lQG1fJPFoqVaZtBn6ZYzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059101825654-pchhj3ih87p8l4u3p1lmb55q18gf7mpe.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
