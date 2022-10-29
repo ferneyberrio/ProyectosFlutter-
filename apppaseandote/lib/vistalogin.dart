@@ -4,6 +4,7 @@ import 'package:apppaseandote/main.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'VistaPrincipal.dart';
 
@@ -16,7 +17,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   //autenticar
-  FirebaseAuth firebaseAuth=FirebaseAuth.instance;
+  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
   final usuario = TextEditingController(); // para capturar un dato
   final clave = TextEditingController();
   String usu = "", cla = "";
@@ -175,19 +176,39 @@ class _LoginState extends State<Login> {
           fontFamily: "titulo",
         ),
       ),
-      onPressed: ()async {
+      onPressed: () async {
         usu = usuario.text; // lo que se recoje en la caja de texto
         cla = clave.text;
-        final datos= await firebaseAuth.signInWithEmailAndPassword(email: usu, password: cla);
+        try {
+          final datos = await firebaseAuth.signInWithEmailAndPassword(
+              email: usu, password: cla);
 
-        if ( datos != null ) {
-          print(datos);
-          // Navigator.push(context,MaterialPageRoute(builder: (context)=>ListaPaseadores())
-          // );
-        } // fin if
-        else {
-          print("usuario incorrecto");
-        }
+          if (datos != null) {
+            print(datos);
+            // Navigator.push(context,MaterialPageRoute(builder: (context)=>ListaPaseadores())
+            // );
+          } // fin if
+          else {
+            print("Ingrese datos");
+            Fluttertoast.showToast(
+                msg: 'Ingrese usuario y contraseña',
+                toastLength: Toast.LENGTH_SHORT,
+                backgroundColor: Colors.deepPurpleAccent,
+                gravity: ToastGravity.BOTTOM,
+                textColor: Colors.white,
+                fontSize: 16);
+
+          }
+        } // fin try
+        catch (e) {
+          Fluttertoast.showToast(
+              msg: 'Datos no encontrados',
+              toastLength: Toast.LENGTH_SHORT,
+              backgroundColor: Colors.deepPurpleAccent,
+              gravity: ToastGravity.BOTTOM,
+              textColor: Colors.white,
+              fontSize: 16);
+        } // fin catch
       },
     );
   } // fin botonLogin
