@@ -1,3 +1,4 @@
+import 'package:apppaseandote/registrousuario.dart';
 import 'package:apppaseandote/tituloprincipal.dart';
 import 'package:apppaseandote/vistalogin.dart';
 import 'package:flutter/material.dart';
@@ -97,6 +98,7 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
 
       onPressed: () {
         print("Boton registrarse Presionado ");
+        Navigator.push(context, MaterialPageRoute(builder: (context)=>RegistrarUsuario()));
       },
     );
   } // fin boton3

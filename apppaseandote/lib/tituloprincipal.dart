@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-String titPpl = "Paseandóte";
+String titPpl = "";
 
 class Titulo extends StatefulWidget {
   const Titulo({Key? key}) : super(key: key);
@@ -15,7 +15,7 @@ class _TituloState extends State<Titulo> {
     return Row(
       children: [
         Container(
-          margin: EdgeInsets.only(top: 50),
+          margin: EdgeInsets.only(top: 30),
           child: Text(
             titPpl,
             style: TextStyle(
@@ -29,7 +29,7 @@ class _TituloState extends State<Titulo> {
           width: 100,
           height: 50,
           // color: Colors.cyan,
-          margin: EdgeInsets.only(top: 50),
+          margin: EdgeInsets.only(top: 30),
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("imagenes/gotas.jpg"),fit: BoxFit.cover,

@@ -28,84 +28,98 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     titPpl = "Paseandote";
     return MaterialApp(
-      home: Scaffold(
-        // appBar: AppBar(
-        //   elevation: 100,
-        //   toolbarHeight: 20,
-        //   backgroundColor: Color.fromARGB(50, 0, 0, 255),
-        //   title: Text("Paseandote"),
-        // ),
-        appBar: AppBar(
-          title: Text('AppBar Demo'),
-          actions: <Widget>[
-            IconButton(
-              icon: Icon(Icons.home),
-              tooltip: 'Show Snackbar',
-              onPressed: () {
-                // para redirigir
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Inicio()));
-                // ScaffoldMessenger.of(context).showSnackBar(
-                //     SnackBar(content: Text('This is a snackbar')));
-              },
-            ),
-          ],
+      home: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment(0.0,1.0),
+            colors: [
+              Colors.white,
+              Colors.blueAccent
+            ]
+          )
         ),
-
-        drawer: Drawer(
-          // width: 200,
-          backgroundColor: Color.fromARGB(42, 3, 60, 107),
-          child: ListView(
-            // Important: Remove any padding from the ListView.
-            padding: EdgeInsets.zero,
-            children: <Widget>[
-              DrawerHeader(
-                child: Text('Menu drawer'),
-                decoration: BoxDecoration(
-                  color: Color.fromARGB(200, 79, 166, 238),
-                ),
-              ),
-              ListTile(
-                iconColor: Colors.white,
-                leading: Icon(
-                  Icons.home,
-                  size: 40,
-                ),
-                title: Text('First item'),
-                subtitle: Text("This is the 1st item"),
-                trailing: Icon(Icons.more_vert),
-                textColor: Colors.white,
-                onTap: () {},
-              ),
-              ListTile(
-                title: Text('Second item'),
-                onTap: () {},
+        child: Scaffold(
+          // appBar: AppBar(
+          //   elevation: 100,
+          //   toolbarHeight: 20,
+            backgroundColor: Color.fromARGB(50, 0, 0, 255),
+          //   title: Text("Paseandote"),
+          // ),
+          appBar: AppBar(
+            title: Text('AppBar Demo'),
+            actions: <Widget>[
+              IconButton(
+                icon: Icon(Icons.home),
+                tooltip: 'Show Snackbar',
+                onPressed: () {
+                  // para redirigir
+                  Navigator.push(
+                      context, MaterialPageRoute(builder: (context) => VistaPrincipal()));
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  //     SnackBar(content: Text('This is a snackbar')));
+                },
               ),
             ],
           ),
-        ),
 
-        body: Container(
-          // imagen de fondo
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("imagenes/atardecer.jpg"), fit: BoxFit.cover),
-          ),
-          child: Padding(
-            padding: EdgeInsets.all(20),
+          drawer: Drawer(
+            // width: 200,
+            backgroundColor: Color.fromARGB(42, 3, 60, 107),
             child: ListView(
-              children: [
-                Container(
-                  child: Titulo(),
-                  margin: EdgeInsets.only(
-                    top: 5,
+              // Important: Remove any padding from the ListView.
+              padding: EdgeInsets.zero,
+              children: <Widget>[
+                DrawerHeader(
+                  child: Text('Menu drawer'),
+                  decoration: BoxDecoration(
+                    color: Color.fromARGB(200, 79, 166, 238),
                   ),
                 ),
-                //llamado funciones
-                txtUsuario(),
-                txtClave(),
-                botonLogin(),
+                ListTile(
+                  iconColor: Colors.white,
+                  leading: Icon(
+                    Icons.home,
+                    size: 40,
+                  ),
+                  title: Text('First item'),
+                  subtitle: Text("This is the 1st item"),
+                  trailing: Icon(Icons.more_vert),
+                  textColor: Colors.white,
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: Text('Second item'),
+                  onTap: () {},
+                ),
               ],
+            ),
+          ),
+
+          body: Container(
+            // imagen de fondo
+            // decoration: BoxDecoration(
+            //   image: DecorationImage(
+            //       image: AssetImage("imagenes/atardecer.jpg"), fit: BoxFit.cover),
+            // ),
+            child: Padding(
+              padding: EdgeInsets.all(20),
+              child: ListView(
+                children: [
+                  Container(
+                    child: Titulo(),
+                    margin: EdgeInsets.only(
+                      top: 5,
+                    ),
+                  ),
+                  //llamado funciones
+                  txtUsuario(),
+                  txtClave(),
+                  botonLogin(),
+                ],
+              ),
             ),
           ),
         ),
@@ -185,8 +199,8 @@ class _LoginState extends State<Login> {
 
           if (datos != null) {
             print(datos);
-            // Navigator.push(context,MaterialPageRoute(builder: (context)=>ListaPaseadores())
-            // );
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>Inicio())
+            );
           } // fin if
           else {
             print("Ingrese datos");
@@ -207,7 +221,7 @@ class _LoginState extends State<Login> {
               backgroundColor: Colors.deepPurpleAccent,
               gravity: ToastGravity.BOTTOM,
               textColor: Colors.white,
-              fontSize: 16);
+              fontSize: 22);
         } // fin catch
       },
     );
