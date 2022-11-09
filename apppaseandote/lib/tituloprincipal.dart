@@ -13,29 +13,33 @@ class _TituloState extends State<Titulo> {
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        Container(
-          margin: EdgeInsets.only(top: 30),
-          child: Text(
-            titPpl,
-            style: TextStyle(
-              fontSize: 25,
-              fontWeight: FontWeight.bold,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        ),
+
         Container(
           width: 100,
-          height: 50,
+          height: 100,
           // color: Colors.cyan,
-          margin: EdgeInsets.only(top: 30),
+          margin: EdgeInsets.only(bottom: 20),
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("imagenes/gotas.jpg"),fit: BoxFit.cover,
+              image: AssetImage("imagenes/logoFYBTEC.png"),fit: BoxFit.cover,
             ),
           ),
         ),
+
+        // Container(
+        //   margin: EdgeInsets.only(top: 30),
+        //   child: Text(
+        //     titPpl,
+        //     style: TextStyle(
+        //       fontSize: 25,
+        //       fontWeight: FontWeight.bold,
+        //     ),
+        //     textAlign: TextAlign.center,
+        //   ),
+        // ),
+
       ],
     );
   }

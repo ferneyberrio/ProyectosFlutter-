@@ -1,11 +1,13 @@
 import 'package:apppaseandote/registrousuario.dart';
 import 'package:apppaseandote/tituloprincipal.dart';
 import 'package:apppaseandote/vistalogin.dart';
+import 'package:apppaseandote/vistasomos.dart';
 import 'package:flutter/material.dart';
 
-String txtB1 = "Login";
+String txtB1 = "Somos";
 String txtB2 = "Ingresar";
 String txtB3 = "Registrarse";
+String txtB4 = "Crear cuenta";
 
 class VistaPrincipal extends StatefulWidget {
   const VistaPrincipal({Key? key}) : super(key: key);
@@ -23,7 +25,7 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
       children: [
         Container(
           // margin: EdgeInsets.only(top: 50),
-          child: Titulo(),
+          child: const Titulo(),
         ),
         Container(
           child: BotonUno(),
@@ -34,6 +36,7 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
         Container(
           child: BotonTres(),
         )
+
       ],
     );
   }
@@ -46,7 +49,7 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
           TextButton.styleFrom(backgroundColor: Colors.yellow.withOpacity(0.3)),
       child: Text(
         txtB1,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 40,
           fontFamily: "titulo",
           color: Colors.white,
@@ -54,7 +57,10 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
       ),
 
       onPressed: () {
-        print("Botón Login Presionado ");
+        // para redirigir
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => const Somos()));
+        print("Botón Somos Presionado ");
       },
     );
   }
@@ -67,7 +73,7 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
           TextButton.styleFrom(backgroundColor: Colors.blue.withOpacity(0.3)),
       child: Text(
         txtB2,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 40,
           fontFamily: "titulo",
           color: Colors.white,
@@ -77,7 +83,7 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
       onPressed: () {
         // para redirigir
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Login()));
+            context, MaterialPageRoute(builder: (context) => const Login()));
         print("Boton Ingresar Presionado ");
       },
     );
@@ -89,7 +95,7 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
       style: TextButton.styleFrom(backgroundColor: Colors.red.withOpacity(0.3)),
       child: Text(
         txtB3,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 40,
           fontFamily: "titulo",
           color: Colors.white,
@@ -102,4 +108,5 @@ class _VistaPrincipalState extends State<VistaPrincipal> {
       },
     );
   } // fin boton3
+
 }
