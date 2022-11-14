@@ -59,6 +59,7 @@ class _LoginState extends State<Login> {
           ),
           drawer: Drawer(
             // width: 300,
+            elevation: 20,
             backgroundColor: Color.fromARGB(200, 255, 255, 255),
             child: ListView(
               // Important: Remove any padding from the ListView.
@@ -89,30 +90,17 @@ class _LoginState extends State<Login> {
               ],
             ),
           ),
-          body: Container(
-            // imagen de fondo
-            // decoration: BoxDecoration(
-            //   image: DecorationImage(
-            //       image: AssetImage("imagenes/atardecer.jpg"), fit: BoxFit.cover),
-            // ),
-            child: Padding(
-              padding: EdgeInsets.all(20),
-              child: ListView(
-                children: [
+          body: ListView(
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
                   Container(
-                    child: Titulo(),
-                    margin: EdgeInsets.only(
-                      top: 5,
+                    child: const Titulo(),
                     ),
-                  ),
-                  //llamado funciones
-                  txtUsuario(),
-                  txtClave(),
-                  botonLogin(),
-                  botonLogin(),
-                ],
-              ),
-            ),
+              Container(child: txtUsuario()),
+              Container(child: txtClave()),
+              Container(margin: EdgeInsets.all(20),child: botonLogin()),
+
+            ],
           ),
         ),
       ),
@@ -125,7 +113,7 @@ class _LoginState extends State<Login> {
       visible: visiUsu,
       child: Container(
         // color: Color.fromARGB(20, 0, 255, 0),
-        margin: EdgeInsets.only(top: 25),
+        margin: EdgeInsets.only(top: 10,bottom: 10,left: 5,right: 5),
 
         decoration: BoxDecoration(
             color: Color.fromARGB(200, 152, 157, 157),
@@ -159,7 +147,7 @@ class _LoginState extends State<Login> {
         children: [
           Container(
             // color: Color.fromARGB(20, 0, 255, 0),
-            margin: EdgeInsets.only(top: 25, bottom: 50),
+            margin: EdgeInsets.only(top: 10, bottom: 10,left: 5,right: 5),
 
             decoration: BoxDecoration(
                 color: Color.fromARGB(200, 152, 157, 157),
@@ -242,7 +230,7 @@ class _LoginState extends State<Login> {
                 fontSize: 22);
           } // fin catch
         } // fin if
-        _togglePasswordView();
+        _toggleFieldView();
       },
     );
   } // fin botonLogin
@@ -250,8 +238,13 @@ class _LoginState extends State<Login> {
   _togglePasswordView() {
     setState(() {
       esHidenPassword = !esHidenPassword; // cambiar visibilidad
+    });
+  } // fin _togglePasswordView
+  _toggleFieldView() {
+    setState(() {
       visiUsu = visiCla = true;
     });
   } // fin _togglePasswordView
+
 
 }

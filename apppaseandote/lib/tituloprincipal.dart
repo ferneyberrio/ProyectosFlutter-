@@ -20,7 +20,7 @@ class _TituloState extends State<Titulo> {
           width: 100,
           height: 100,
           // color: Colors.cyan,
-          margin: EdgeInsets.only(bottom: 20),
+          margin: EdgeInsets.all(20),
           decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage("imagenes/logoFYBTEC.png"),fit: BoxFit.cover,
